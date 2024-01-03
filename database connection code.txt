@@ -1,0 +1,21 @@
+sql connection:
+
+SqlConnection con = new SqlConnection("server=ABI;database=abishek;uid=sa;pwd=User@123");
+
+connection:
+
+con.Open();
+            string query = "insert into demo4 values('" + textBox1.Text + "','" + textBox2.Text + "')";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.ExecuteNonQuery();
+            Form3 obj = new Form3();
+            obj.Show();
+            if (cmd.ExecuteNonQuery()>0)
+            {
+                MessageBox.Show("success");
+            }
+            else
+            {
+                MessageBox.Show("failed");
+            }
+            con.Close();
